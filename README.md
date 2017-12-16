@@ -24,10 +24,15 @@ Explain how to run the automated tests for this system
 
 ### Break down into end to end tests
 
-Explain what these tests test and why
+This will run project in dev mode
 
 ```
-Give an example
+gulp default
+```
+
+This will run project in production
+```
+gulp prod
 ```
 
 

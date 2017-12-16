@@ -77,3 +77,4 @@ gulp.task('browser-sync', function() {
 });
 
 gulp.task('default', ['watcher', 'browser-sync']);
+gulp.task('prod', ['stylus', 'minify-css', 'html', 'compress-images', 'js']);
