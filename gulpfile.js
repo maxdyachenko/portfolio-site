@@ -13,7 +13,7 @@ var paths = {
     dist:   'dist/',
     stylus: 'stylus/',
     css:    'css/',
-    js:     'js/*.js',
+    js:     'js/',
     //html:    '*.html'
     assets: 'assets/',
     fonts: 'fonts/',
@@ -39,7 +39,7 @@ gulp.task('fonts', function () {
 });
 
 gulp.task('js', function () {
-    gulp.src(paths.app + paths.js)
+    gulp.src(paths.app + paths.js + '*.js')
         .pipe(gulp.dest(paths.dist + paths.js))
         .pipe(browserSync.reload({stream:true}));
 });
@@ -70,7 +70,7 @@ gulp.task('watcher',function(){
     gulp.watch(paths.app + paths.css + '*.css', ['minify-css']);
     gulp.watch(paths.app + '*.html', ['html']);
     gulp.watch(paths.app + paths.assets + paths.images + '*', ['compress-images']);
-    gulp.watch(paths.app + paths.js, ['js']);
+    gulp.watch(paths.app + paths.js + '*.js', ['js']);
     gulp.watch(paths.app + paths.assets + paths.fonts, ['fonts']);
 });
 

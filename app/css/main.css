@@ -49,16 +49,36 @@ li {
   src: url("../assets/fonts/HelveticaNeue-Bold.woff2") format('woff2'), url("../assets/fonts/HelveticaNeue-Bold.woff") format('woff'), url("../assets/fonts/HelveticaNeue-Bold.ttf") format('ttf'), url("../assets/fonts/HelveticaNeue-Bold.eot") format('eot');
 }
 .menu {
-  display: flex;
-  flex-direction: column;
   position: fixed;
   left: 0;
   top: 0;
-  width: 23.2rem;
-  min-height: 100%;
+  width: 31rem;
+  height: 100%;
+  overflow: auto;
+}
+.menu.active .hamburger {
+  display: none;
+}
+.menu.active .menu-content {
+  transform: translateX(0);
+}
+.menu .hamburger {
+  position: absolute;
+  padding: 2rem;
+}
+.menu .icon svg {
+  width: 3rem;
+  height: 3rem;
+}
+.menu .menu-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   padding: 2.5rem 0;
   text-align: center;
+  transform: translateX(-100%);
   background: #272631;
+  transition: 0.5s;
 }
 .menu .avatar {
   padding-bottom: 2.5rem;

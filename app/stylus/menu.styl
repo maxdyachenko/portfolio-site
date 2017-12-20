@@ -1,14 +1,30 @@
 .menu
-    display flex
-    flex-direction column
     position fixed
     left 0
     top 0
-    width 23.2rem
-    min-height 100%
-    padding 2.5rem 0
-    text-align center
-    background color_brand_dark_black
+    width 31rem //23.2rem
+    height 100%
+    overflow auto
+    &.active
+        .hamburger
+            display none
+        .menu-content
+            transform translateX(0)
+    .hamburger
+        position absolute
+        padding 2rem
+    .icon svg
+        width 3rem
+        height @width
+    .menu-content
+        display flex
+        flex-direction column
+        height 100%
+        padding 2.5rem 0
+        text-align center
+        transform translateX(-100%)
+        background color_brand_dark_black
+        transition .5s
     .avatar
         padding-bottom 2.5rem
         .name, .position
@@ -55,5 +71,7 @@
             width 4rem
             height @width
             cursor pointer
+//@media screen and (min-width: 700px)
+
 
 
