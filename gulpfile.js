@@ -53,7 +53,7 @@ gulp.task('minify-css', function () {
 });
 
 gulp.task('compress-images', function() {
-    gulp.src(paths.assets + paths.images + '*')
+    gulp.src(paths.app + paths.assets + paths.images + '*')
         .pipe(imagemin())
         .pipe(gulp.dest(paths.dist + paths.assets + paths.images))
         .pipe(browserSync.reload({stream:true}));

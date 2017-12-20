@@ -1,0 +1,59 @@
+.menu
+    display flex
+    flex-direction column
+    position fixed
+    left 0
+    top 0
+    width 23.2rem
+    min-height 100%
+    padding 2.5rem 0
+    text-align center
+    background color_brand_dark_black
+    .avatar
+        padding-bottom 2.5rem
+        .name, .position
+            letter-spacing .5px
+        .position
+            margin-top 0.7rem
+            color color_brand_light_white
+            font 400 1.4rem / 1.2 Helvetica Neue
+        .name
+            color color_brand_white
+            margin-top 1.5rem
+            font 700 2.0rem / 1.2 Helvetica Neue Bold
+        img
+            width 9rem
+            height @width
+    .menu-list
+        margin-top 8rem
+        li
+            position relative
+            padding 0.8rem 0
+            text-align left
+            color color_brand_light_white2
+            font 400 1.6rem / 1.2 Helvetica Neue
+            a
+                padding-left 1.7rem
+                letter-spacing .3px
+            &.active
+                color color_brand_white
+                background color_brand_dark_black2
+                &:before
+                    content ''
+                    position absolute
+                    height 100%
+                    top 0
+                    left 0
+                    border-left 2px solid color_brand_red
+    .menu-footer
+        margin-top auto
+    .socials
+        display flex
+        justify-content space-around
+        align-self flex-end
+        .icon
+            width 4rem
+            height @width
+            cursor pointer
+
+
