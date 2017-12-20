@@ -1,13 +1,12 @@
-* {
-  margin: 0;
+@font-face {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/HelveticaNeue.woff2") format('woff2'), url("../assets/fonts/HelveticaNeue.woff") format('woff'), url("../assets/fonts/HelveticaNeue.ttf") format('ttf'), url("../assets/fonts/HelveticaNeue.eot") format('eot');
 }
-html {
-  padding: 2px;
-  transition: 2s;
-}
-body {
-  margin: 6px;
-}
-p {
-  color: #f00;
+@font-face {
+  font-family: 'Helvetica Neue Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: url("../assets/fonts/HelveticaNeue-Bold.woff2") format('woff2'), url("../assets/fonts/HelveticaNeue-Bold.woff") format('woff'), url("../assets/fonts/HelveticaNeue-Bold.ttf") format('ttf'), url("../assets/fonts/HelveticaNeue-Bold.eot") format('eot');
 }
