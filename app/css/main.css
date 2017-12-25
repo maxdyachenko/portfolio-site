@@ -57,6 +57,12 @@ h1 {
     padding-left: 3rem;
   }
 }
+@media screen and (max-width: 700px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
 @-moz-keyframes fadeIn {
   from {
     opacity: 0;
@@ -132,7 +138,8 @@ h1 {
 .menu .hamburger {
   display: none;
   position: absolute;
-  padding: 2rem 2rem 2rem 3rem;
+  top: 2rem;
+  left: 3rem;
 }
 .menu .icon svg {
   width: 3rem;
@@ -216,6 +223,14 @@ h1 {
   }
   .menu .menu-content {
     transform: translateX(-100%);
+  }
+}
+@media screen and (max-width: 700px) {
+  .menu .menu-list {
+    margin-top: 3rem;
+  }
+  .menu .hamburger {
+    left: 1.5rem;
   }
 }
 .pagination {
@@ -304,6 +319,12 @@ h1 {
     width: 45%;
   }
 }
+@media screen and (max-width: 700px) {
+  .content .block-wrapper {
+    justify-content: center;
+    width: 100%;
+  }
+}
 .about-page .content {
   display: block;
   margin: 0 auto;
@@ -370,6 +391,11 @@ h1 {
 .about-page .about-list .skills-wrapper {
   margin-left: 2rem;
 }
+@media screen and (max-width: 700px) {
+  .about-page .content .avatar {
+    width: 60%;
+  }
+}
 .contact-page .content {
   display: block;
   text-align: center;
@@ -396,6 +422,7 @@ h1 {
   width: 100%;
   border: none;
   border-bottom: 2px solid #ffa0a0;
+  border-radius: 0;
   font: 400 1.6rem/1.2 Helvetica Neue;
   transition: 0.3s;
 }
@@ -445,4 +472,9 @@ h1 {
 }
 .contact-page .content-part:nth-of-type(2) {
   animation-delay: 1s;
+}
+@media screen and (max-width: 700px) {
+  .contact-page form {
+    width: 100%;
+  }
 }

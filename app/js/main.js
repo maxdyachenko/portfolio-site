@@ -7,17 +7,17 @@ $(document).ready(function () {
    });
     $(window).touchwipe({
         wipeLeft: closeMenu,
-        min_move_x: 10,
-        min_move_y: 10
+        min_move_x: 5,
+        min_move_y: 5
     });
     $('.content').touchwipe({
         wipeUp: closeMenu,
-        wipeDown: closeMenu,
-        min_move_x: 10,
-        min_move_y: 10
+        wipeDown: closeMenu
     });
     function closeMenu() {
-        if (isMenuOpen)
+        if (isMenuOpen) {
             menu.toggleClass('active');
+            isMenuOpen = false;
+        }
     }
 });

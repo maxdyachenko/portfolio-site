@@ -23,7 +23,8 @@
     .hamburger
         display none
         position absolute
-        padding 2rem 2rem 2rem 3rem
+        top 2rem
+        left 3rem
     .icon svg
         width 3rem
         height @width
@@ -89,6 +90,11 @@
             display block
         .menu-content
             transform translateX(-100%)
-
+@media screen and (max-width: 700px)
+    .menu
+        .menu-list
+            margin-top 3rem
+        .hamburger
+            left 1.5rem
 
 
