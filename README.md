@@ -6,14 +6,18 @@ Here is samples of my projects and info about me
 
 To run frontend part use
 
-```
-Give the example
-```
-
-And repeat
+This will run project in dev mode
 
 ```
-until finished
+npm run i
+```
+```
+npm run dev
+```
+
+This will run project in production
+```
+npm run prod
 ```
 
 End with an example of getting some data out of the system or using it for a little demo
@@ -27,17 +31,20 @@ Explain how to run the automated tests for this system
 This will run project in dev mode
 
 ```
-gulp default
+npm run i
+```
+```
+npm run dev
 ```
 
 This will run project in production
 ```
-gulp prod
+npm run prod
 ```
 
 
 ## Built With
-
+* Flat icons - https://www.flaticon.com/
 * HTML
 * Stylus
 * Jquery

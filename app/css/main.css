@@ -21,6 +21,9 @@ a {
 li {
   list-style-type: none;
 }
+img {
+  max-width: 100%;
+}
 .red-button {
   padding: 0 2rem;
 }
@@ -35,6 +38,9 @@ li {
 }
 .red-button button:hover {
   box-shadow: 1.5px 1.5px 3px 0 rgba(255,255,255,0.3);
+}
+.container {
+  padding: 1.5rem 3rem 1.5rem 29rem;
 }
 @font-face {
   font-family: 'Helvetica Neue';
@@ -154,4 +160,84 @@ li {
   width: 4rem;
   height: 4rem;
   cursor: pointer;
+}
+.pagination {
+  display: inline-block;
+}
+.pagination ul {
+  display: flex;
+}
+.pagination a {
+  display: block;
+}
+.pagination li {
+  position: relative;
+  padding: 1rem;
+  color: #6d6d6d;
+  font: 700 1.6rem/1.2 Helvetica Neue Bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.pagination li:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  left: 0;
+  bottom: 3px;
+  right: 0;
+  background-color: #ea5a5a;
+  transition: 0.3s;
+  transform: scaleX(0);
+  transform-origin: center left;
+  visiblity: hidden;
+}
+.pagination li:hover,
+.pagination li.active {
+  color: #000;
+}
+.pagination li:hover:before,
+.pagination li.active:before {
+  transform: scaleX(1);
+  visiblity: visible;
+}
+.content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.content .block-wrapper {
+  position: relative;
+  width: 30%;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+.content .block-wrapper:hover .overlay {
+  opacity: 1;
+  visibility: visible;
+}
+.content .overlay {
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  text-align: center;
+  font: 700 1.6rem/1.2 Helvetica Neue Bold;
+  color: #fff;
+  background: rgba(0,0,0,0.7);
+  transition: 0.5s;
+}
+.content .overlay .icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-top: 1rem;
+  fill: #fff;
 }

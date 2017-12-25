@@ -1,0 +1,38 @@
+@require 'pagination'
+.content
+	display flex
+	justify-content space-between
+	flex-wrap wrap
+	.block-wrapper
+		position relative
+		width 30%
+		margin-bottom 2rem
+		cursor pointer
+		&:hover
+			.overlay
+				opacity 1
+				visibility visible
+	.overlay
+		visibility hidden
+		opacity 0
+		display flex
+		flex-direction column
+		align-items center
+		justify-content center
+		position absolute
+		top 0
+		left 0
+		width 100%
+		height 100%
+		margin auto
+		text-align center
+		font 700 1.6rem / 1.2 Helvetica Neue Bold
+		color color_brand_white
+		background rgba(color_brand_black, .7)
+		transition .5s
+		.icon
+			width 3.5rem
+			height @width
+			margin-top 1rem
+			fill color_brand_white
+

@@ -1,0 +1,31 @@
+.pagination
+	display inline-block
+	ul
+		display flex
+	a
+		display block
+	li
+		position relative
+		padding 1rem
+		color color_brand_light_black
+		font 700 1.6rem / 1.2 Helvetica Neue Bold
+		cursor pointer
+		transition .3s
+		&:before
+			content ''
+			position absolute
+			width 100%
+			height 2px
+			left 0
+			bottom 3px
+			right 0
+			background-color color_brand_red
+			transition .3s
+			transform scaleX(0)
+			transform-origin center left
+			visiblity hidden
+		&:hover, &.active
+			color color_brand_black
+			&:before
+				transform scaleX(1)
+				visiblity visible
