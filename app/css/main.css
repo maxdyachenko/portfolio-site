@@ -24,6 +24,12 @@ li {
 img {
   max-width: 100%;
 }
+h1 {
+  margin-bottom: 2rem;
+  font: 700 3rem/1.2 Helvetica Neue Bold;
+  letter-spacing: 0.3px;
+  color: #272631;
+}
 .red-button {
   padding: 0 2rem;
 }
@@ -231,6 +237,7 @@ img {
   margin: auto;
   text-align: center;
   font: 700 1.6rem/1.2 Helvetica Neue Bold;
+  letter-spacing: 0.3px;
   color: #fff;
   background: rgba(0,0,0,0.7);
   transition: 0.5s;
@@ -240,4 +247,102 @@ img {
   height: 3.5rem;
   margin-top: 1rem;
   fill: #fff;
+}
+.about-page .content {
+  display: block;
+  margin: 0 auto;
+  max-width: 900px;
+}
+.about-page .content .info-content,
+.about-page .content .info {
+  opacity: 0;
+  animation: fadeIn ease-in 1;
+  animation-fill-mode: forwards;
+}
+.about-page .content .info {
+  text-align: center;
+  animation-delay: 0.5s;
+  animation-duration: 0.5s;
+}
+.about-page .content .info-content {
+  animation-delay: 1.2s;
+  animation-duration: 0.7s;
+}
+.about-page .content .avatar {
+  display: inline-block;
+  width: 30%;
+}
+.about-page .content .position {
+  margin-top: 1rem;
+  color: #19181e;
+  letter-spacing: 0.5px;
+  font: 700 1.8rem/1.2 Helvetica Neue Bold;
+}
+.about-page .content .desc {
+  margin-top: 1.2rem;
+  text-align: center;
+  font: 400 1.6rem/1.5 Helvetica Neue;
+}
+.about-page .about-list {
+  margin-top: 3.5rem;
+  font: 400 1.6rem/1.5 Helvetica Neue;
+  letter-spacing: 0.3px;
+}
+.about-page .about-list span {
+  font-weight: bold;
+}
+.about-page .about-list dt {
+  font: 700 1.6rem/1.5 Helvetica Neue Bold;
+}
+.about-page .about-list dt:not(:first-of-type) {
+  margin-top: 1.5rem;
+}
+.about-page .about-list dd {
+  padding-left: 2rem;
+}
+.about-page .about-list a {
+  text-decoration: underline;
+  color: #007ab9;
+}
+.about-page .about-list .skill {
+  display: inline-block;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border-radius: 0.4rem;
+  background: #cecece;
+}
+.about-page .about-list .skills-wrapper {
+  margin-left: 2rem;
+}
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

@@ -1,0 +1,59 @@
+dd_pad_left = 2rem
+.about-page
+	.content
+		display block
+		margin 0 auto
+		max-width 900px
+		.info-content, .info
+			opacity 0
+			animation fadeIn ease-in 1
+			animation-fill-mode forwards
+		.info
+			text-align center
+			animation-delay .5s
+			animation-duration .5s
+		.info-content
+			animation-delay 1.2s
+			animation-duration .7s
+		.avatar
+			display inline-block
+			width 30%
+		.position
+			margin-top 1rem
+			color color_brand_dark_black2
+			letter-spacing .5px
+			font 700 1.8rem/1.2 Helvetica Neue Bold
+		.desc
+			margin-top 1.2rem
+			text-align center
+			font 400 1.6rem / 1.5 Helvetica Neue
+	.about-list
+		margin-top 3.5rem
+		font 400 1.6rem / 1.5 Helvetica Neue
+		letter-spacing .3px
+		span
+			font-weight bold
+		dt
+			font 700 1.6rem / 1.5 Helvetica Neue Bold
+			&:not(:first-of-type)
+				margin-top 1.5rem
+		dd
+			padding-left dd_pad_left
+		a
+			text-decoration underline
+			color color_brand_blue
+		.skill
+			display inline-block
+			padding .5rem
+			margin-top .5rem
+			border-radius .4rem
+			background color_brand_grey
+		.skills-wrapper
+			margin-left dd_pad_left
+@keyframes fadeIn
+	from {
+		opacity 0
+	}
+	to {
+		opacity 1
+	}
