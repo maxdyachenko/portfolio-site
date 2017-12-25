@@ -2,14 +2,22 @@
     position fixed
     left 0
     top 0
-    width 31rem //23.2rem
+    width 26rem
     height 100%
     overflow auto
-    &.active
-        .hamburger
-            display none
-        .menu-content
-            transform translateX(0)
+    .langs
+        display flex
+        justify-content flex-end
+        margin-right 2rem
+        .active, a:hover
+            color color_brand_white
+        a, p
+            padding 0 2px
+            color color_brand_light_white
+            transition .3s
+            font 400 1.6rem / 1.2 Helvetica Neue
+    .hamburger
+        display none
     .hamburger
         position absolute
         padding 2rem
@@ -19,35 +27,36 @@
     .menu-content
         display flex
         flex-direction column
-        height 100%
-        padding 2.5rem 0
+        min-height 100%
+        padding 2rem 0
         text-align center
-        transform translateX(-100%)
         background color_brand_dark_black
         transition .5s
+    .user-info
+        margin-top 2rem
     .avatar
-        padding-bottom 2.5rem
+        padding-bottom 1.5rem
         .name, .position
             letter-spacing .5px
         .position
-            margin-top 0.7rem
+            margin-top 0.5rem
             color color_brand_light_white
             font 400 1.4rem / 1.2 Helvetica Neue
         .name
             color color_brand_white
-            margin-top 1.5rem
+            margin-top 1rem
             font 700 2.0rem / 1.2 Helvetica Neue Bold
         img
             width 9rem
             height @width
     .menu-list
-        margin-top 8rem
+        margin 7rem 0 1rem 0
         li
             position relative
             padding 0.8rem 0
             text-align left
             color color_brand_light_white2
-            font 400 1.6rem / 1.2 Helvetica Neue
+            font 400 1.7rem / 1.2 Helvetica Neue
             a
                 padding-left 1.7rem
                 letter-spacing .3px
@@ -71,7 +80,6 @@
             width 4rem
             height @width
             cursor pointer
-//@media screen and (min-width: 700px)
 
 
 
