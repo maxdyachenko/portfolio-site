@@ -24,6 +24,9 @@ li {
 img {
   max-width: 100%;
 }
+input {
+  outline: none;
+}
 h1 {
   margin-bottom: 2rem;
   font: 700 3rem/1.2 Helvetica Neue Bold;
@@ -47,6 +50,38 @@ h1 {
 }
 .container {
   padding: 1.5rem 3rem 1.5rem 29rem;
+}
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 @font-face {
   font-family: 'Helvetica Neue';
@@ -314,35 +349,80 @@ h1 {
 .about-page .about-list .skills-wrapper {
   margin-left: 2rem;
 }
-@-moz-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.contact-page .content {
+  display: block;
+  text-align: center;
 }
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.contact-page p {
+  text-align: center;
+  font: 400 1.8rem/1.5 Helvetica Neue;
 }
-@-o-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.contact-page .socials {
+  display: flex;
+  justify-content: center;
 }
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.contact-page .socials .icon {
+  width: 4rem;
+  height: 4rem;
+  cursor: pointer;
+}
+.contact-page .socials .glyph {
+  padding: 1.5rem;
+}
+.contact-page input {
+  margin-top: 1rem;
+  padding: 1rem;
+  width: 100%;
+  border: 1px solid #6d6d6d;
+  border-radius: 0.7rem;
+  font: 400 1.6rem/1.2 Helvetica Neue;
+  transition: 0.3s;
+  box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.2);
+}
+.contact-page input:focus {
+  border: 1px solid #ea5a5a;
+}
+.contact-page input[type='file'] {
+  border: none;
+  box-shadow: none;
+}
+.contact-page form {
+  display: inline-block;
+  width: 50%;
+  margin-top: 2rem;
+}
+.contact-page form .red-button {
+  margin-top: 2rem;
+  padding: 0;
+  cursor: pointer;
+}
+.contact-page form button {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+.contact-page .small {
+  margin-top: 0.7rem;
+  font-size: 1.2rem;
+  font-style: italic;
+}
+.contact-page label {
+  display: block;
+  text-align: left;
+  letter-spacing: 0.3px;
+  font: 400 1.6rem/1.2 Helvetica Neue;
+  margin-top: 2rem;
+}
+.contact-page .content-part {
+  opacity: 0;
+  animation: fadeIn ease-in 1;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s;
+}
+.contact-page .content-part:nth-of-type(1) {
+  animation-delay: 0.5s;
+}
+.contact-page .content-part:nth-of-type(2) {
+  animation-delay: 1s;
 }
