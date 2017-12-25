@@ -51,6 +51,12 @@ h1 {
 .container {
   padding: 1.5rem 3rem 1.5rem 29rem;
 }
+@media screen and (max-width: 950px) {
+  .container {
+    padding-top: 6rem;
+    padding-left: 3rem;
+  }
+}
 @-moz-keyframes fadeIn {
   from {
     opacity: 0;
@@ -102,6 +108,10 @@ h1 {
   width: 26rem;
   height: 100%;
   overflow: auto;
+  z-index: 9;
+}
+.menu.active .menu-content {
+  transform: translateX(0);
 }
 .menu .langs {
   display: flex;
@@ -121,10 +131,8 @@ h1 {
 }
 .menu .hamburger {
   display: none;
-}
-.menu .hamburger {
   position: absolute;
-  padding: 2rem;
+  padding: 2rem 2rem 2rem 3rem;
 }
 .menu .icon svg {
   width: 3rem;
@@ -201,6 +209,14 @@ h1 {
   width: 4rem;
   height: 4rem;
   cursor: pointer;
+}
+@media screen and (max-width: 950px) {
+  .menu .hamburger {
+    display: block;
+  }
+  .menu .menu-content {
+    transform: translateX(-100%);
+  }
 }
 .pagination {
   display: inline-block;
@@ -282,6 +298,11 @@ h1 {
   height: 3.5rem;
   margin-top: 1rem;
   fill: #fff;
+}
+@media screen and (max-width: 1350px) {
+  .content .block-wrapper {
+    width: 45%;
+  }
 }
 .about-page .content {
   display: block;
@@ -373,14 +394,13 @@ h1 {
   margin-top: 1rem;
   padding: 1rem;
   width: 100%;
-  border: 1px solid #6d6d6d;
-  border-radius: 0.7rem;
+  border: none;
+  border-bottom: 2px solid #ffa0a0;
   font: 400 1.6rem/1.2 Helvetica Neue;
   transition: 0.3s;
-  box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.2);
 }
 .contact-page input:focus {
-  border: 1px solid #ea5a5a;
+  border-bottom: 2px solid #ea5a5a;
 }
 .contact-page input[type='file'] {
   border: none;

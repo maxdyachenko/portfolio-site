@@ -5,6 +5,10 @@
     width menu_width
     height 100%
     overflow auto
+    z-index 9
+    &.active
+        .menu-content
+            transform translateX(0)
     .langs
         display flex
         justify-content flex-end
@@ -18,9 +22,8 @@
             font 400 1.6rem / 1.2 Helvetica Neue
     .hamburger
         display none
-    .hamburger
         position absolute
-        padding 2rem
+        padding 2rem 2rem 2rem 3rem
     .icon svg
         width 3rem
         height @width
@@ -80,6 +83,12 @@
             width 4rem
             height @width
             cursor pointer
+@media screen and (max-width: 950px)
+    .menu
+        .hamburger
+            display block
+        .menu-content
+            transform translateX(-100%)
 
 
 
