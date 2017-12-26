@@ -51,9 +51,13 @@ h1 {
 .container {
   padding: 1.5rem 3rem 1.5rem 29rem;
 }
+.disable-hover,
+.disable-hover * {
+  pointer-events: none !important;
+}
 @media screen and (max-width: 950px) {
   .container {
-    padding-top: 6rem;
+    padding-top: 7rem;
     padding-left: 3rem;
   }
 }
@@ -107,6 +111,21 @@ h1 {
   font-weight: 700;
   src: url("../assets/fonts/HelveticaNeue-Bold.woff2") format('woff2'), url("../assets/fonts/HelveticaNeue-Bold.woff") format('woff'), url("../assets/fonts/HelveticaNeue-Bold.ttf") format('ttf'), url("../assets/fonts/HelveticaNeue-Bold.eot") format('eot');
 }
+.hamburger {
+  display: none;
+  position: fixed;
+  top: 2rem;
+  left: 3rem;
+  z-index: 8;
+  background: #272631;
+}
+.hamburger .icon {
+  width: 4.5rem;
+  padding: 0.5rem 0.5rem 0.2rem 0.5rem;
+}
+.hamburger .icon svg {
+  fill: #fff;
+}
 .menu {
   position: fixed;
   left: 0;
@@ -115,8 +134,9 @@ h1 {
   height: 100%;
   overflow: auto;
   z-index: 9;
+  transition: 0.5s;
 }
-.menu.active .menu-content {
+.menu.active {
   transform: translateX(0);
 }
 .menu .langs {
@@ -135,16 +155,6 @@ h1 {
   transition: 0.3s;
   font: 400 1.6rem/1.2 Helvetica Neue;
 }
-.menu .hamburger {
-  display: none;
-  position: absolute;
-  top: 2rem;
-  left: 3rem;
-}
-.menu .icon svg {
-  width: 3rem;
-  height: 3rem;
-}
 .menu .menu-content {
   display: flex;
   flex-direction: column;
@@ -152,7 +162,6 @@ h1 {
   padding: 2rem 0;
   text-align: center;
   background: #272631;
-  transition: 0.5s;
 }
 .menu .user-info {
   margin-top: 2rem;
@@ -218,18 +227,18 @@ h1 {
   cursor: pointer;
 }
 @media screen and (max-width: 950px) {
-  .menu .hamburger {
-    display: block;
-  }
-  .menu .menu-content {
+  .menu {
     transform: translateX(-100%);
+  }
+  .hamburger {
+    display: block;
   }
 }
 @media screen and (max-width: 700px) {
   .menu .menu-list {
     margin-top: 3rem;
   }
-  .menu .hamburger {
+  .hamburger {
     left: 1.5rem;
   }
 }
@@ -272,6 +281,10 @@ h1 {
 .pagination li.active:before {
   transform: scaleX(1);
   visiblity: visible;
+}
+.can-touch .content .block-wrapper:hover .overlay {
+  opacity: 0;
+  visibility: hidden;
 }
 .content {
   display: flex;

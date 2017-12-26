@@ -1,4 +1,7 @@
 @require 'pagination'
+.can-touch .content .block-wrapper:hover .overlay
+	opacity 0
+	visibility hidden
 .content
 	display flex
 	justify-content space-between
@@ -8,10 +11,9 @@
 		width 30%
 		margin-bottom 2rem
 		cursor pointer
-		&:hover
-			.overlay
-				opacity 1
-				visibility visible
+		&:hover .overlay
+			opacity 1
+			visibility visible
 	.overlay
 		visibility hidden
 		opacity 0

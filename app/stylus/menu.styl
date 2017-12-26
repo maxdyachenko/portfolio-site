@@ -1,3 +1,16 @@
+.hamburger
+    display none
+    position fixed
+    top 2rem
+    left 3rem
+    //padding .7rem
+    z-index 8
+    background color_brand_dark_black
+    .icon
+        width 4.5rem
+        padding .5rem .5rem .2rem .5rem
+        svg
+            fill color_brand_white
 .menu
     position fixed
     left 0
@@ -6,9 +19,9 @@
     height 100%
     overflow auto
     z-index 9
+    transition .5s
     &.active
-        .menu-content
-            transform translateX(0)
+        transform translateX(0)
     .langs
         display flex
         justify-content flex-end
@@ -20,14 +33,6 @@
             color color_brand_light_white
             transition .3s
             font 400 1.6rem / 1.2 Helvetica Neue
-    .hamburger
-        display none
-        position absolute
-        top 2rem
-        left 3rem
-    .icon svg
-        width 3rem
-        height @width
     .menu-content
         display flex
         flex-direction column
@@ -35,7 +40,6 @@
         padding 2rem 0
         text-align center
         background color_brand_dark_black
-        transition .5s
     .user-info
         margin-top 2rem
     .avatar
@@ -86,15 +90,14 @@
             cursor pointer
 @media screen and (max-width: 950px)
     .menu
-        .hamburger
-            display block
-        .menu-content
-            transform translateX(-100%)
+        transform translateX(-100%)
+    .hamburger
+        display block
 @media screen and (max-width: 700px)
     .menu
         .menu-list
             margin-top 3rem
-        .hamburger
-            left 1.5rem
+    .hamburger
+        left 1.5rem
 
 
