@@ -40,7 +40,18 @@ h1
         transition .5s
         &:hover
             box-shadow 1.5px 1.5px 3px 0 rgba(255,255,255,0.3)
-
+body.popup-open
+    position fixed
+.close
+    position absolute
+    top 0
+    right 0
+    padding 1rem
+    cursor pointer
+    z-index 9999
+    .icon
+        width 3.5rem
+        height @width
 .container
     padding 1.5rem 3rem 1.5rem menu_width+3rem
 

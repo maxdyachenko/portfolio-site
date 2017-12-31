@@ -42,7 +42,10 @@ $(document).ready(function () {
 
     $('#close-popup').on('click', closePopup);
     $('#popup-overlay').on('click', closePopup);
+    $('#close-zoom').on('click', closeZoom);
+    $('.zoom-container').on('click', closeZoom);
 
+    $('.thumb-zoom').on('click', openZoom);
     $('.block-wrapper').on('click', openPopup);
 
     function openPopup() {
@@ -56,7 +59,45 @@ $(document).ready(function () {
         }
     }
 
-    $('.slick').slick();
+    var zoomStartPos = 1;
+    function openZoom() {
+        zoomStartPos = $(this).data('id');
+        $('.zoom-container').fadeIn(700);
+        body.addClass('zoom-open');
+    }
+    
+    function closeZoom() {
+        if(!$(event.target).closest('.zoom-carousel').length) {
+            $('.zoom-container').fadeOut(700);
+            body.removeClass('zoom-open');
+        }
+    }
+
+    $('.owl').owlCarousel({
+        loop:true,
+        margin:10,
+        nav: true,
+        navText: false,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:1
+            },
+            1000:{
+                items:2
+            }
+        }
+    });
+
+    $('.zoom-carousel').owlCarousel({
+        startPosition: zoomStartPos,
+        nav: true,
+        navText: false,
+        items: 1,
+        loop:true
+    })
 
 
 });

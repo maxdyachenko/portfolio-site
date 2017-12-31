@@ -51,6 +51,21 @@ h1 {
 .red-button button:hover {
   box-shadow: 1.5px 1.5px 3px 0 rgba(255,255,255,0.3);
 }
+body.popup-open {
+  position: fixed;
+}
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  cursor: pointer;
+  z-index: 9999;
+}
+.close .icon {
+  width: 3.5rem;
+  height: 3.5rem;
+}
 .container {
   padding: 1.5rem 3rem 1.5rem 29rem;
 }
@@ -286,6 +301,7 @@ h1 {
   visiblity: visible;
 }
 .popup-overlay {
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -303,6 +319,7 @@ h1 {
 .popup-overlay .term {
   flex-basis: 30%;
   flex-grow: 0;
+  margin-right: 0.5rem;
   font: 700 1.6rem/1.2 Helvetica Neue Bold;
 }
 .popup-overlay .desc {
@@ -319,6 +336,7 @@ h1 {
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
   max-width: 768px;
+  width: 60%;
   max-height: 90%;
   border-radius: 1.5rem;
   box-shadow: 0 0 4px 2px rgba(0,0,0,0.35);
@@ -332,29 +350,76 @@ h1 {
   padding: 5.5rem 2rem 2rem 2rem;
   transform: translate3d(0, 0, 0);
 }
-.popup-overlay .close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 1rem;
-  cursor: pointer;
-}
-.popup-overlay .close .icon {
-  width: 3.5rem;
-  height: 3.5rem;
-}
 .popup-overlay .gallery {
   margin-top: 2.5rem;
+  width: 100%;
 }
 .popup-overlay .gallery h2 {
   text-align: center;
+  margin-bottom: 1rem;
   letter-spacing: 0.2px;
   font: 700 1.8rem/1.2 Helvetica Neue Bold;
 }
-.block-test {
-  width: 100px;
-  height: 100px;
-  background: #000;
+.popup-overlay .item {
+  cursor: pointer;
+}
+.owl-nav [class*=owl-] {
+  position: absolute;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-color: #fff;
+  padding: 0.5rem;
+  top: 50%;
+  background: none !important;
+}
+.owl-prev {
+  border-bottom: 0.3rem solid;
+  border-left: 0.3rem solid;
+  transform: translateY(-100%) rotate(45deg);
+  left: 1rem;
+}
+.owl-next {
+  border-bottom: 0.3rem solid;
+  border-left: 0.3rem solid;
+  transform: translateY(-100%) rotate(-135deg);
+  right: 1rem;
+}
+.zoom-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+.zoom-container.active {
+  display: flex !important;
+}
+.zoom-carousel {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1001;
+}
+.zoom-carousel .item {
+  margin-left: 5%;
+  width: 90%;
+}
+.zoom-open .zoom-container {
+  background: rgba(0,0,0,0.5);
+}
+@media screen and (max-width: 700px) {
+  .popup-overlay .popup {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .popup-overlay .popup {
+    width: 95%;
+  }
 }
 .can-touch .content .block-wrapper:hover .overlay {
   opacity: 0;
