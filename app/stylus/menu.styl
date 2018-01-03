@@ -1,103 +1,111 @@
 .hamburger
-    display none
-    position fixed
-    top 2rem
-    left 3rem
-    //padding .7rem
-    z-index 8
-    background color_brand_dark_black
-    .icon
-        width 4.5rem
-        padding .5rem .5rem .2rem .5rem
-        svg
-            fill color_brand_white
+	display none
+	position fixed
+	top 2rem
+	left 3rem
+	z-index 8
+	background color_brand_dark_black
+	.icon
+		width 4.5rem
+		padding .5rem .5rem .2rem .5rem
+		svg
+			fill color_brand_white
+
 .menu
-    position fixed
-    left 0
-    top 0
-    width menu_width
-    height 100%
-    overflow auto
-    z-index 9
-    transition .5s
-    &.active
-        transform translateX(0)
-    .langs
-        display flex
-        justify-content flex-end
-        margin-right 2rem
-        .active, a:hover
-            color color_brand_white
-        a, p
-            padding 0 2px
-            color color_brand_light_white
-            transition .3s
-            font 400 1.6rem / 1.2 Helvetica Neue
-    .menu-content
-        display flex
-        flex-direction column
-        min-height 100%
-        padding 2rem 0
-        text-align center
-        background color_brand_dark_black
-    .user-info
-        margin-top 2rem
-    .avatar
-        padding-bottom 1.5rem
-        .name, .position
-            letter-spacing .5px
-        .position
-            margin-top 0.5rem
-            color color_brand_light_white
-            font 400 1.4rem / 1.2 Helvetica Neue
-        .name
-            color color_brand_white
-            margin-top 1rem
-            font 700 2.0rem / 1.2 Helvetica Neue Bold
-        img
-            width 9rem
-            height @width
-    .menu-list
-        margin 7rem 0 1rem 0
-        li
-            position relative
-            padding 0.8rem 0
-            text-align left
-            color color_brand_light_white2
-            font 400 1.7rem / 1.2 Helvetica Neue
-            a
-                padding-left 1.7rem
-                letter-spacing .3px
-            &.active
-                color color_brand_white
-                background color_brand_dark_black2
-                &:before
-                    content ''
-                    position absolute
-                    height 100%
-                    top 0
-                    left 0
-                    border-left 2px solid color_brand_red
-    .menu-footer
-        margin-top auto
-    .socials
-        display flex
-        justify-content space-around
-        align-self flex-end
-        .icon
-            width 4rem
-            height @width
-            cursor pointer
+	position fixed
+	left 0
+	top 0
+	width menu_width
+	height 100%
+	overflow auto
+	z-index 9
+	transition .5s
+	&.active
+		transform translateX(0)
+	.langs
+		display flex
+		justify-content flex-end
+		margin-right 2rem
+		.active, a:hover
+			color color_brand_white
+		a, p
+			padding 0 2px
+			color color_brand_light_white
+			transition .3s
+			font 400 1.6rem / 1.2 Helvetica Neue
+	.menu-content
+		display flex
+		flex-direction column
+		min-height 100%
+		padding 2rem 0
+		text-align center
+		background color_brand_dark_black
+	.user-info
+		margin-top 2rem
+	.avatar
+		padding-bottom 1.5rem
+		.name, .position
+			letter-spacing .5px
+		.position
+			margin-top 0.5rem
+			color color_brand_light_white
+			font 400 1.4rem / 1.2 Helvetica Neue
+		.name
+			color color_brand_white
+			margin-top 1rem
+			font 700 2.0rem / 1.2 Helvetica Neue Bold
+		img
+			width 9rem
+			height @width
+	.menu-list
+		margin 7rem 0 1rem 0
+		li
+			position relative
+			padding 0.8rem 0
+			text-align left
+			color color_brand_light_white2
+			font 400 1.7rem / 1.2 Helvetica Neue
+			transition .3s
+			&:hover
+				color color_brand_white
+			a
+				padding-left 1.7rem
+				letter-spacing .3px
+			&.active
+				color color_brand_white
+				background color_brand_dark_black2
+				&:before
+					content ''
+					position absolute
+					height 100%
+					top 0
+					left 0
+					border-left 2px solid color_brand_red
+	.menu-footer
+		margin-top auto
+	.socials
+		display flex
+		justify-content space-around
+		align-self flex-end
+		.icon
+			width 4rem
+			height @width
+			cursor pointer
+			transition .3s
+
 @media screen and (max-width: 950px)
-    .menu
-        transform translateX(-100%)
-    .hamburger
-        display block
+	.menu
+		transform translateX(-100%)
+
+	.hamburger
+		display block
+
 @media screen and (max-width: 700px)
-    .menu
-        .menu-list
-            margin-top 3rem
-    .hamburger
-        left 1.5rem
+	.menu
+		.menu-list
+			margin-top 3rem
+
+	.hamburger
+		left 1.5rem
 
 

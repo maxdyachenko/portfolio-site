@@ -214,6 +214,10 @@ body.popup-open {
   text-align: left;
   color: #d6d5df;
   font: 400 1.7rem/1.2 Helvetica Neue;
+  transition: 0.3s;
+}
+.menu .menu-list li:hover {
+  color: #fff;
 }
 .menu .menu-list li a {
   padding-left: 1.7rem;
@@ -243,6 +247,7 @@ body.popup-open {
   width: 4rem;
   height: 4rem;
   cursor: pointer;
+  transition: 0.3s;
 }
 @media screen and (max-width: 950px) {
   .menu {
@@ -410,6 +415,13 @@ body.popup-open {
 }
 .zoom-open .zoom-container {
   background: rgba(0,0,0,0.5);
+}
+.close .icon {
+  fill: #ffa0a0;
+  transition: 0.3s;
+}
+.close .icon:hover {
+  fill: #ea5a5a;
 }
 @media screen and (max-width: 700px) {
   .popup-overlay .popup {
