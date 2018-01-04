@@ -1,6 +1,15 @@
 <?php
 
 add_action('wp_enqueue_scripts', 'md_styles_scripts');
+add_action( 'init', 'md_menu' );
+function md_menu() {
+	register_nav_menus(
+		array(
+			'header-menu' => __( 'Header Menu' )
+			//'extra-menu' => __( 'Extra Menu' )
+		)
+	);
+}
 function md_styles_scripts()
 {
 
