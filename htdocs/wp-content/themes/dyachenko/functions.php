@@ -2,6 +2,27 @@
 
 add_action('wp_enqueue_scripts', 'md_styles_scripts');
 add_action( 'init', 'md_menu' );
+
+add_theme_support( 'post-thumbnails' );
+add_theme_support('custom-logo');
+add_theme_support( 'title-tag' );
+
+add_filter( 'post_thumbnail_html', 'md_post_image_html', 10, 3);
+add_filter( 'pre_get_document_title', 'md_filter_title');
+add_filter ('document_title_separator', 'md_document_title_separator') ;
+
+function md_document_title_separator ($sep)
+{
+	return '|';
+}
+function md_filter_title() {
+	return get_bloginfo() . ' | ' . get_the_title();
+}
+function md_post_image_html( $html, $post_id, $post_thumbnail_id ) {
+	$html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
+	return $html;
+
+}
 function md_menu() {
 	register_nav_menus(
 		array(
@@ -32,6 +53,7 @@ function md_styles_scripts()
 	}
 
 }
+
 
 
 
