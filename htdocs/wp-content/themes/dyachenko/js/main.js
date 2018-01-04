@@ -1,4 +1,4 @@
-$(document).ready(function () {
+jQuery(document).ready(function ($) {
     var menu = $('.menu'),
         isMenuOpen = false;
     $('.hamburger').click(function () {
