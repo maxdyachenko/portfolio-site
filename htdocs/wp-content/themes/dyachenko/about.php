@@ -22,6 +22,53 @@ Template Name: About me
 				<div class="desc">
 					<?php the_content(); ?>
 				</div>
+                <div class="about-list">
+
+                    <?php global $post; $post_id = $post->ID; ?>
+                    <dl>
+                        <dt>
+                            Education
+                        </dt>
+	                    <?php
+                            $edu = get_post_meta($post_id, 'education', true);
+                            if (!empty($edu)){
+	                            foreach ($edu as $item) : ?>
+                                    <dd>
+                                        <?php echo $item; ?>
+                                    </dd>
+                                <?php endforeach;
+                            }
+                        ?>
+                        <dt>
+                            Work experience
+                        </dt>
+	                    <?php
+                            $exp = get_post_meta($post_id, 'experience', true);
+                            if (!empty($edu)){
+                                foreach ($exp as $item) : ?>
+                                    <dd>
+                                        <?php echo $item; ?>
+                                    </dd>
+                                <?php endforeach;
+                            }
+	                    ?>
+                        <dt>
+                            Skills
+                        </dt>
+                        <div class="skills-wrapper">
+	                        <?php
+	                        $skill = get_post_meta($post_id, 'skills', true);
+	                        if (!empty($edu)){
+		                        foreach ($skill as $item) : ?>
+                                    <dd class="skill">
+				                        <?php echo $item; ?>
+                                    </dd>
+		                        <?php endforeach;
+	                        }
+	                        ?>
+                        </div>
+                    </dl>
+                </div>
 			</div>
 		</div>
 	<?php endwhile; wp_reset_query(); ?>

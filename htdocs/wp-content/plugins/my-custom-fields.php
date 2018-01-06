@@ -5,88 +5,164 @@
  * Version: 1.0.0
  * License: GPL2
  */
+require_once(ABSPATH . 'wp-admin/includes/screen.php');
 new My_Best_Metaboxes;
 
 class My_Best_Metaboxes {
 
 	public $post_type = 'page';
 
-	static $meta_key = 'company_address';
+	static $meta_key1 = 'education';
+	static $meta_key2 = 'experience';
+	static $meta_key3 = 'skills';
 
 	public function __construct() {
+	    delete_post_meta(2, 'TEST');
 		add_action( 'add_meta_boxes', array( $this, 'add_metabox' ) );
 		add_action( 'save_post_' . $this->post_type, array( $this, 'save_metabox' ) );
 		add_action( 'admin_print_footer_scripts', array( $this, 'show_assets' ), 10, 999 );
 	}
 
-	## Добавляет матабоксы
+
 	public function add_metabox() {
-		add_meta_box( 'box_info_company', 'Информация о компании', array( $this, 'render_metabox' ), $this->post_type, 'advanced', 'high' );
+		global $post;
+		if(!empty($post))
+		{
+			$pageTemplate = get_post_meta($post->ID, '_wp_page_template', true);
+
+			if($pageTemplate == 'about.php' )
+			{
+				add_meta_box( 'box_info_user', __('User info'), array( $this, 'render_metabox' ), $this->post_type, 'advanced', 'high' );
+
+			}
+		}
 	}
 
 	## Отображает метабокс на странице редактирования поста
-	public function render_metabox( $post ) {
+	public function render_metabox($post) {
 
 		?>
-		<table class="form-table company-info">
+		<table class="form-table user-info-table">
 
-			<tr>
+			<tr class="education-tr">
 				<th>
-					Адреса компании <span class="dashicons dashicons-plus-alt add-company-address"></span>
+					Education <span class="dashicons dashicons-plus-alt add-info"></span>
 				</th>
-				<td class="company-address-list">
+				<td class="info-list">
 					<?php
-					$input = '
-					<span class="item-address">
-						<input type="text" name="'. self::$meta_key .'[]" value="%s">
-						<span class="dashicons dashicons-trash remove-company-address"></span>
+					$input1 = '
+					<span class="item-edu clone-item">
+						<input type="text" name="'. self::$meta_key1 .'[]" value="%s">
+						<span class="dashicons dashicons-trash remove-info"></span>
 					</span>
 					';
 
-					$addresses = get_post_meta( $post->ID, self::$meta_key, true );
+					$education_info = get_post_meta( $post->ID, self::$meta_key1, true );
 
-					if ( is_array( $addresses ) ) {
-						foreach ( $addresses as $addr ) {
-							printf( $input, esc_attr( $addr ) );
+					if (is_array($education_info)) {
+						foreach ($education_info as $addr) {
+							printf($input1, esc_attr( $addr));
 						}
 					} else {
-						printf( $input, '' );
+						printf($input1, '');
 					}
 					?>
 				</td>
 			</tr>
+            <tr class="work-tr">
+                <th>
+                    Work Experience <span class="dashicons dashicons-plus-alt add-info"></span>
+                </th>
+                <td class="info-list">
+					<?php
+					$input2 = '
+					<span class="item-work clone-item">
+						<input type="text" name="'. self::$meta_key2 .'[]" value="%s">
+						<span class="dashicons dashicons-trash remove-info"></span>
+					</span>
+					';
+
+					$experience_info = get_post_meta( $post->ID, self::$meta_key2, true );
+
+					if ( is_array( $experience_info ) ) {
+						foreach ( $experience_info as $exp ) {
+							printf( $input2, esc_attr( $exp ) );
+						}
+					} else {
+						printf( $input2, '' );
+					}
+					?>
+                </td>
+            </tr>
+            <tr class="skills-tr">
+                <th>
+                    Skills <span class="dashicons dashicons-plus-alt add-info"></span>
+                </th>
+                <td class="info-list">
+					<?php
+					$input3 = '
+					<span class="item-skill clone-item">
+						<input type="text" name="'. self::$meta_key3 .'[]" value="%s">
+						<span class="dashicons dashicons-trash remove-info"></span>
+					</span>
+					';
+
+					$skills_info = get_post_meta($post->ID, self::$meta_key3, true);
+
+					if ( is_array( $skills_info ) ) {
+						foreach ( $skills_info as $skill ) {
+							printf( $input3, esc_attr($skill));
+						}
+					} else {
+						printf($input3, '');
+					}
+					?>
+                </td>
+            </tr>
 
 		</table>
 
 		<?php
 	}
+    public function save_metabox($post_id) {
 
-	## Очищает и сохраняет значения полей
-	public function save_metabox( $post_id ) {
-
-		// Check if it's not an autosave.
-		if ( wp_is_post_autosave( $post_id ) )
+		if (wp_is_post_autosave( $post_id ) )
 			return;
 
-		if ( isset( $_POST[self::$meta_key] ) && is_array( $_POST[self::$meta_key] ) ) {
-			$addresses = $_POST[self::$meta_key];
+		if (isset($_POST[self::$meta_key1] ) && is_array( $_POST[self::$meta_key1])) {
+			$education_info = $this->get_filtered_fields($_POST[self::$meta_key1]);
 
-			$addresses = array_map( 'sanitize_text_field', $addresses ); // очистка
+			$this->manage_field($education_info, $post_id, self::$meta_key1);
+		}
+		if (isset( $_POST[self::$meta_key2] ) && is_array( $_POST[self::$meta_key2])) {
+			$experience_info = $this->get_filtered_fields($_POST[self::$meta_key2]);
 
-			$addresses = array_filter( $addresses ); // уберем пустые адреса
+			$this->manage_field($experience_info, $post_id, self::$meta_key2);
+		}
+		if (isset( $_POST[self::$meta_key3] ) && is_array( $_POST[self::$meta_key3])) {
+			$skills_info = $this->get_filtered_fields($_POST[self::$meta_key3]);
 
-			if ( $addresses ) {
-				update_post_meta( $post_id, self::$meta_key, $addresses );
-			}
-			else {
-				delete_post_meta( $post_id, self::$meta_key );
-			}
+			$this->manage_field($skills_info, $post_id, self::$meta_key3);
 		}
 	}
+	public function manage_field($field, $post_id, $meta_key) {
+		if ($field) {
+			update_post_meta($post_id, $meta_key, $field);
+		}
+		else {
+			delete_post_meta($post_id, $meta_key);
+		}
+    }
+
+	public function get_filtered_fields($fields) {
+	    $fields = array_map('wp_kses_post', $fields);
+	    $fields = array_filter($fields);
+	    return $fields;
+    }
 
 	## Подключает скрипты и стили
 	public function show_assets() {
-		if ( is_admin() && get_current_screen()->id == $this->post_type ) {
+		if (is_admin() && get_current_screen()->id == $this->post_type) {
 			$this->show_styles();
 			$this->show_scripts();
 		}
@@ -96,19 +172,19 @@ class My_Best_Metaboxes {
 	public function show_styles() {
 		?>
 		<style>
-			.add-company-address {
+			.add-info {
 				color: #00a0d2;
 				cursor: pointer;
 			}
-			.company-address-list .item-address {
+			.info-list .clone-item {
 				display: flex;
 				align-items: center;
 			}
-			.company-address-list .item-address input {
+			.info-list .clone-item input {
 				width: 100%;
 				max-width: 400px;
 			}
-			.remove-company-address {
+			.remove-info {
 				color: brown;
 				cursor: pointer;
 			}
@@ -122,25 +198,25 @@ class My_Best_Metaboxes {
 		<script>
             jQuery(document).ready(function ($) {
 
-                var $companyInfo = $('.company-info');
+                $('.user-info-table').click(function () {
+                    if ($(event.target).hasClass('add-info')) {
+                        var $list = $(event.target).parents('tr').find('.info-list');
+                        $item = $list.find('.clone-item').first().clone();
 
-                // Добавляет бокс с вводом адреса фирмы
-                $('.add-company-address', $companyInfo).click(function () {
-                    var $list = $('.company-address-list');
-                    $item = $list.find('.item-address').first().clone();
+                        $item.find('input').val(''); // чистим знанчение
 
-                    $item.find('input').val(''); // чистим знанчение
-
-                    $list.append( $item );
+                        $list.append( $item );
+                    }
                 });
 
-                // Удаляет бокс с вводом адреса фирмы
-                $companyInfo.on('click', '.remove-company-address', function () {
-                    if ($('.item-address').length > 1) {
-                        $(this).closest('.item-address').remove();
+                $('.remove-info').on('click', function () {
+                    var input = $(event.target).parents('.clone-item');
+                    var block = $(event.target).parents('.info-list').find('.clone-item');
+                    if (block.length > 1) {
+                        input.remove();
                     }
                     else {
-                        $(this).closest('.item-address').find('input').val('');
+                        input.find('input').val('');
                     }
                 });
 
