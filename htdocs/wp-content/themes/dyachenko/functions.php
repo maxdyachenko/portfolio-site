@@ -2,6 +2,7 @@
 
 add_action('wp_enqueue_scripts', 'md_styles_scripts');
 add_action( 'init', 'md_menu' );
+add_action( 'widgets_init', 'md_register_sidebars' );
 
 add_theme_support( 'post-thumbnails' );
 add_theme_support('custom-logo');
@@ -11,6 +12,20 @@ add_filter( 'post_thumbnail_html', 'md_post_image_html', 10, 3);
 add_filter( 'pre_get_document_title', 'md_filter_title');
 add_filter ('document_title_separator', 'md_document_title_separator') ;
 
+
+function md_register_sidebars() {
+	register_sidebar(
+		array(
+			'id'            => 'primary',
+			'name'          => __( 'Social links' ),
+			'description'   => '',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		)
+	);
+}
 function md_document_title_separator ($sep)
 {
 	return '|';
