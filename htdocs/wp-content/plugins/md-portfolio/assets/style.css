@@ -1,0 +1,8 @@
+.group input, .group textarea {
+    margin-top: 10px;
+    width: 100%;
+}
+.fgroup input {
+    width: 100%;
+    margin-bottom: 15px;
+}

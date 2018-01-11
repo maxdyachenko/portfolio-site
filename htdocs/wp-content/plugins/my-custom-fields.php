@@ -5,6 +5,9 @@
  * Version: 1.0.0
  * License: GPL2
  */
+if (!function_exists('add_action')) {
+	wp_die('Not Allowed');
+}
 require_once(ABSPATH . 'wp-admin/includes/screen.php');
 new My_Best_Metaboxes;
 

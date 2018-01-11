@@ -6,6 +6,9 @@
  * License: GPL2
  */
 // Add to existing function.php file
+if (!function_exists('add_action')) {
+	wp_die('Not Allowed');
+}
 // Disable support for comments and trackbacks in post types
 function df_disable_comments_post_types_support() {
 	$post_types = get_post_types();
