@@ -46,12 +46,7 @@ jQuery(document).ready(function ($) {
     $('.zoom-container').on('click', closeZoom);
 
     $('.thumb-zoom').on('click', openZoom);
-    $('.block-wrapper').on('click', openPopup);
 
-    function openPopup() {
-        $('#popup-overlay').fadeIn(700);
-        body.addClass('popup-open');
-    }
     function closePopup(e) {
         if(!$(event.target).closest('.popup').length || $(this).is('#close-popup')) {
             $('#popup-overlay').fadeOut(700);
@@ -72,24 +67,6 @@ jQuery(document).ready(function ($) {
             body.removeClass('zoom-open');
         }
     }
-
-    $('.owl').owlCarousel({
-        loop:true,
-        margin:10,
-        nav: true,
-        navText: false,
-        responsive:{
-            0:{
-                items:1
-            },
-            600:{
-                items:1
-            },
-            1000:{
-                items:2
-            }
-        }
-    });
 
     $('.zoom-carousel').owlCarousel({
         startPosition: zoomStartPos,
