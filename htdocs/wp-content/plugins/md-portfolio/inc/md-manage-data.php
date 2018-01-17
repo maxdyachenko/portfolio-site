@@ -43,7 +43,7 @@ function md_update_data() {
 function manage_data($name) {
 
 	$dir_name = WP_PLUGIN_DIR  . '/md-portfolio/assets/images/' . $name;
-	!file_exists($dir_name) ? mkdir($dir_name, 0775, true) : false;
+	!file_exists($dir_name) ? mkdir($dir_name, 0755, true) : false;
 
 	$i = 0;
 	foreach ($_FILES['md_images']['name'] as $file) {
