@@ -7,29 +7,33 @@
 <div class="popup-content">
 	<div class="group">
 		<p class="term">About</p>
-		<p class="desc">Responsive , multi-language, cross-browser landing for Cryptobazar</p>
+		<p class="desc"><?php echo $data->about ?></p>
 	</div>
 	<div class="group">
 		<p class="term">Skills</p>
-		<p class="desc">HTML, CSS, PHP, Jquery</p>
+		<p class="desc"><?php echo $data->skills ?></p>
 	</div>
-	<div class="group">
-		<p class="term">Additional info</p>
-		<p class="desc">Some additional info</p>
-	</div>
+	<?php if (!empty($data->info)): ?>
+		<div class="group">
+			<p class="term">Additional info</p>
+			<p class="desc"><?php echo $data->info ?></p>
+		</div>
+	<?php endif; ?>
 	<div class="group">
 		<p class="term">URL<br></p>
-		<p class="desc"><a target="_blank" href="http://www.cryptobazar.io/">cryptobazar.io</a><small> (Can be unavailable)</small></p>
+		<p class="desc"><a target="_blank" href="<?php echo $data->url ?>"><?php echo $data->url ?></a><small> (Can be unavailable)</small></p>
 	</div>
 </div>
 <div class="gallery">
 	<h2>Gallery</h2>
 	<div class="gallery-content">
+		<?php $images = json_decode($data->images); $i = 1; ?>
+		<div style="display: none;" id="zoom-images-src"><?php echo MD_PLUGIN_DIR . 'assets/images/' . $data->name . '/' ?></div>
+		<div style="display: none;" id="zoom-images-fetch"><?php echo implode(',',$images); ?></div>
 		<div class="owl-carousel owl-theme owl">
-			<div class="item thumb-zoom" data-id="1"><img src="<?php echo get_template_directory_uri() . '/assets/images/thumb.jpg' ?>"></div>
-			<div class="item thumb-zoom" data-id="2"><img src="<?php echo get_template_directory_uri() . '/assets/images/thumb.jpg' ?>"></div>
-			<div class="item thumb-zoom" data-id="3"><img src="<?php echo get_template_directory_uri() . '/assets/images/thumb.jpg' ?>"></div>
-			<div class="item thumb-zoom" data-id="4"><img src="<?php echo get_template_directory_uri() . '/assets/images/thumb.jpg' ?>"></div>
+			<?php foreach ($images as $image): ?>
+				<div class="item thumb-zoom" data-id="<?php echo $i; ?>"><img src="<?php echo MD_PLUGIN_DIR . 'assets/images/' . $data->name . '/' . $image ?>"></div>
+			<?php $i++; endforeach; ?>
 		</div>
 	</div>
 </div>

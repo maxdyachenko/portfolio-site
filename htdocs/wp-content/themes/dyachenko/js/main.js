@@ -40,41 +40,9 @@ jQuery(document).ready(function ($) {
         }, 500);
     });
 
-    $('#close-popup').on('click', closePopup);
-    $('#popup-overlay').on('click', closePopup);
-    $('#close-zoom').on('click', closeZoom);
-    $('.zoom-container').on('click', closeZoom);
 
-    $('.thumb-zoom').on('click', openZoom);
 
-    function closePopup(e) {
-        if(!$(event.target).closest('.popup').length || $(this).is('#close-popup')) {
-            $('#popup-overlay').fadeOut(700);
-            body.removeClass('popup-open');
-        }
-    }
 
-    var zoomStartPos = 1;
-    function openZoom() {
-        zoomStartPos = $(this).data('id');
-        $('.zoom-container').fadeIn(700);
-        body.addClass('zoom-open');
-    }
-    
-    function closeZoom() {
-        if(!$(event.target).closest('.zoom-carousel').length) {
-            $('.zoom-container').fadeOut(700);
-            body.removeClass('zoom-open');
-        }
-    }
-
-    $('.zoom-carousel').owlCarousel({
-        startPosition: zoomStartPos,
-        nav: true,
-        navText: false,
-        items: 1,
-        loop:true
-    })
 
 
 });

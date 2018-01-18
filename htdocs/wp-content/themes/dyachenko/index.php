@@ -50,8 +50,7 @@
 		</svg>
 	</div>
 	<div class="zoom-carousel owl-carousel owl-theme">
-		<div class="item"><img src="<?php echo get_template_directory_uri() . '/assets/images/thumb.jpg' ?>"></div>
-		<div class="item"><img src="<?php echo get_template_directory_uri() . '/assets/images/thumb.jpg' ?>"></div>
+
 	</div>
 </div>
 
