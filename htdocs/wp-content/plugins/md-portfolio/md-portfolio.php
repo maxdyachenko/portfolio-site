@@ -28,10 +28,15 @@ include 'inc/shortcode/md-shortcode.php';
 
 //frontend
 add_action( 'wp_enqueue_scripts', 'md_assets' );
+
 add_action( 'wp_ajax_get_portfolio', 'md_ajax_get_portfolio' );
 add_action( 'wp_ajax_nopriv_get_portfolio', 'md_ajax_get_portfolio' );
 
+add_action( 'wp_ajax_get_more_items', 'md_ajax_get_more_items' );
+add_action( 'wp_ajax_nopriv_get_more_items', 'md_ajax_get_more_items' );
+
 include 'inc/frontend/md-enqueue.php';
 include 'inc/frontend/md-ajax-portfolio.php';
+include 'inc/frontend/md-ajax-get-more.php';
 
 

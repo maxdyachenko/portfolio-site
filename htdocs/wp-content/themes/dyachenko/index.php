@@ -23,14 +23,9 @@
 			<?php the_content()?>
 		<?php endwhile; ?>
 	</div>
-	<div class="pagination">
-		<ul>
-			<li><a href="">Previous</a></li>
-			<li class="active"><a href="">1</a></li>
-			<li><a href="">2</a></li>
-			<li class="disabled"><a href="">Next</a></li>
-		</ul>
-	</div>
+	<div id="show-more">
+        <p>Show more...</p>
+    </div>
 </div>
 
 
