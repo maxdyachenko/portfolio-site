@@ -24,7 +24,7 @@
 		<?php endwhile; ?>
 	</div>
 	<div id="show-more">
-        <p>Show more...</p>
+        <p><?php _e('Show more...', 'dyachenko') ?></p>
     </div>
 </div>
 

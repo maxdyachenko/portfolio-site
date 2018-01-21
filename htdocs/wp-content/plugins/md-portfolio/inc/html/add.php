@@ -3,24 +3,24 @@
 		<input type="hidden" name="action" value="md_save_data">
 		<?php wp_nonce_field('md_save_portfolio') ?>
 		<div class="group">
-			<label for="name">Enter project name</label>
-			<input type="text" id="name" name="md_name" value="<?php if (isset($post_data)) echo $post_data->name; ?>">
+			<label for="name"><?php _e('Enter project name', 'md_portfolio') ?></label>
+			<input type="text" id="name" name="md_name" value="">
 		</div>
 		<div class="group">
-			<label for="about">About project</label>
-			<textarea id="about" name="md_about"><?php if (isset($post_data)) echo $post_data->about; ?></textarea>
+			<label for="about"><?php _e('About project', 'md_portfolio') ?></label>
+			<textarea id="about" name="md_about"></textarea>
 		</div>
 		<div class="group">
 			<label for="skills">Skills</label>
-			<input type="text" id="skills" name="md_skill" value="<?php if (isset($post_data)) echo $post_data->skills; ?>">
+			<input type="text" id="skills" name="md_skill" value="">
 		</div>
 		<div class="group">
-			<label for="info">Additional info</label>
-			<input type="text" id="info" name="md_info" value="<?php if (isset($post_data)) echo $post_data->info; ?>">
+			<label for="info"><?php _e('Additional info', 'md_portfolio') ?></label>
+			<input type="text" id="info" name="md_info" value="">
 		</div>
 		<div class="group">
 			<label for="url">URL</label>
-			<input type="text" id="url" name="md_url" value="<?php if (isset($post_data)) echo $post_data->url; ?>">
+			<input type="text" id="url" name="md_url" value="">
 		</div>
 		<div class="fgroup">
 			<label for="image">Inset project thumb</label>

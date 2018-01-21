@@ -7,6 +7,7 @@ function md_save_data() {
 
 	$name = sanitize_text_field($_POST['md_name']);
 	$about = sanitize_text_field($_POST['md_about']);
+
 	$skill = sanitize_text_field($_POST['md_skill']);
 	$info = sanitize_text_field($_POST['md_info']);
 	$url = sanitize_text_field($_POST['md_url']);

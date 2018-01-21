@@ -3,6 +3,7 @@
 function md_portfolio_output($atts) {
 	$data = get_portfolio_data();
 	$html = "";
+	apply_filters('md_check_content_exist', ITEMS_PER_PAGE);
 	foreach ($data as $value) {
 		$html .= include 'html/shortcode-front.php';
 	}

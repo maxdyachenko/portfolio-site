@@ -32,13 +32,14 @@ function display_menu_page() {
 	global $title;
 
 	$data = get_all_data();
+
 	include 'html/main.php';
 }
 
 function get_all_data() {
 	global $wpdb;
 	$table = $wpdb->prefix . PORTFOLIO_LIST_TABLE;
-	return $wpdb->get_results( "SELECT id, name, about FROM $table" );
+	return $wpdb->get_results( "SELECT id, name, about, info FROM $table" );
 }
 
 function display_submenu() {

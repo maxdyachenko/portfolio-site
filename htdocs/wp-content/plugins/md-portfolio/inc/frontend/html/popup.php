@@ -6,26 +6,27 @@
 </div>
 <div class="popup-content">
 	<div class="group">
-		<p class="term">About</p>
-		<p class="desc"><?php echo $data->about ?></p>
+		<p class="term"><?php _e('About', 'md_portfolio') ?></p>
+		<p class="desc"><?php echo $data->about ?>
+        </p>
 	</div>
 	<div class="group">
-		<p class="term">Skills</p>
+		<p class="term"><?php _e('Skills', 'md_portfolio') ?></p>
 		<p class="desc"><?php echo $data->skills ?></p>
 	</div>
 	<?php if (!empty($data->info)): ?>
 		<div class="group">
-			<p class="term">Additional info</p>
+			<p class="term"><?php _e('Additional info', 'md_portfolio') ?></p>
 			<p class="desc"><?php echo $data->info ?></p>
 		</div>
 	<?php endif; ?>
 	<div class="group">
-		<p class="term">URL<br></p>
-		<p class="desc"><a target="_blank" href="<?php echo $data->url ?>"><?php echo $data->url ?></a><small> (Can be unavailable)</small></p>
+		<p class="term"><?php _e('URL', 'md_portfolio') ?><br></p>
+		<p class="desc"><a target="_blank" href="<?php echo $data->url ?>"><?php echo $data->url ?></a><small> <?php _e('(Can be unavailable)','md_portfolio') ?></small></p>
 	</div>
 </div>
 <div class="gallery">
-	<h2>Gallery</h2>
+	<h2><?php _e('Gallery', 'md_portfolio') ?></h2>
 	<div class="gallery-content">
 		<?php $images = json_decode($data->images); $i = 1; ?>
 		<div style="display: none;" id="zoom-images-src"><?php echo MD_PLUGIN_DIR . 'assets/images/' . $data->name . '/' ?></div>

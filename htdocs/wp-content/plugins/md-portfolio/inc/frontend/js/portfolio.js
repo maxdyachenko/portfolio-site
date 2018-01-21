@@ -1,16 +1,53 @@
 jQuery(document).ready(function ($) {
+
+    //show more functionality
+    var showMore = $('#show-more');
+
+    showMore.on('click', function () {
+        var length = $('.block-wrapper').length;
+        var content = $('.content');
+
+
+        $.post(
+            mdPortfolio.ajaxurl,
+            {
+                action: 'get_more_items',
+                offset: length
+            },
+            function (response) {
+                var heightBefore = content.height();
+                content.css('height', heightBefore + 'px');
+                $(response).insertAfter($('.block-wrapper').last());
+                $('.block-wrapper').unbind('click');
+                $('.block-wrapper').on('click', openPopup);
+
+                $('img').load(function () {
+                    var heightAfter = content.css({height:'auto'}).height();
+                    content.css({height:heightBefore}).animate({
+                        height: heightAfter
+                    }, 200);
+                    $('html, body').animate({
+                        scrollTop: $('.block-wrapper').last().offset().top
+                    }, 100);
+                });
+            }
+        );
+    });
+
+
+    //open popup functionality
     var spinner = $('.spinner'),
         body = $('body'),
         zoomContainer = $('.zoom-container');
 
 
-    $('.block-wrapper').on('click', openPopup);
     $('#popup-overlay').on('click', closePopup);
 
+    $('.block-wrapper').on('click', openPopup);
 
     function openPopup() {
         spinner.fadeIn(700);
-
+        disableScroll();
         var id  = $(this).data('id');
         $.post(
             mdPortfolio.ajaxurl,
@@ -21,13 +58,11 @@ jQuery(document).ready(function ($) {
             function (response) {
                 $('.popup-container').html(response);
                 $('#popup-overlay').fadeIn(700);
-                body.addClass('popup-open');
 
                 initCarousel();
 
                 $('#close-popup').on('click', closePopup);
                 $('.thumb-zoom').on('click', openZoom);
-
 
                 insertZoomImages();
             }
@@ -38,7 +73,7 @@ jQuery(document).ready(function ($) {
     function closePopup(e) {
         if(!$(event.target).closest('.popup').length || $(this).is('#close-popup')) {
             $('#popup-overlay').fadeOut(700);
-            body.removeClass('popup-open');
+            enableScroll();
         }
     }
 
@@ -49,6 +84,7 @@ jQuery(document).ready(function ($) {
     var zoomStartPos = 1;
     function openZoom() {
         zoomContainer.fadeIn(700);
+        disableScroll();
         zoomStartPos = $(this).data('id');
         body.addClass('zoom-open');
         initZoomCarousel();
@@ -84,7 +120,7 @@ jQuery(document).ready(function ($) {
     }
 
     function initZoomCarousel(zoomStartPos) {
-       $('.zoom-carousel').owlCarousel({
+        $('.zoom-carousel').owlCarousel({
             startPosition: zoomStartPos,
             nav: true,
             navText: false,
@@ -96,7 +132,7 @@ jQuery(document).ready(function ($) {
     function insertZoomImages() {
         var html = "<div class='item'><img src=''></div>";
         var wrapper = document.createElement('div');
-        $(wrapper).html(html)
+        $(wrapper).html(html);
         var imagesSrcs = $('#zoom-images-fetch').html().split(',');
         var src = $('#zoom-images-src').html();
 
@@ -108,4 +144,16 @@ jQuery(document).ready(function ($) {
         }
         $('.zoom-carousel').html(htmlToPaste);
     }
+    
+    function disableScroll() {
+        var oldWidth = body.innerWidth();
+        body.css("overflow", "hidden");
+        body.width(oldWidth);
+    }
+    
+    function enableScroll() {
+        body.css("overflow", "auto");
+        body.width("auto");
+    }
+
 });

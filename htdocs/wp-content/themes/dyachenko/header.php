@@ -17,9 +17,7 @@
 <div class="menu">
     <div class="menu-content">
         <div class="langs">
-            <a class="active" href="#">RU </a>
-            <p class="separator"> | </p>
-            <a href="#"> EN</a>
+            <?php pll_the_languages(array('display_names_as' => 'slug')); ?>
         </div>
         <div class="user-info">
             <figure class="avatar">
@@ -31,15 +29,15 @@
             </figure>
             <div>
                 <button class="red-button">
-                    <a href="#">Contact me</a>
+                    <a href="/contacts"><?php _e('Contact me', 'dyachenko') ?></a>
                 </button>
             </div>
         </div>
 		<?php
 		wp_nav_menu(
 			array(
-				'theme_location' => 'primary',
-				'menu' => 'primary',
+				'theme_location' => '',
+				'menu' => '',
 				'container'       => 'div',
 				'container_class' => 'menu-list',
 				'menu_class' => ''

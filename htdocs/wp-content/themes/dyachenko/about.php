@@ -27,7 +27,7 @@ Template Name: About me
                     <?php global $post; $post_id = $post->ID; ?>
                     <dl>
                         <dt>
-                            Education
+                            <?php _e('Education','dyachenko') ?>
                         </dt>
 	                    <?php
                             $edu = get_post_meta($post_id, 'education', true);
@@ -40,7 +40,7 @@ Template Name: About me
                             }
                         ?>
                         <dt>
-                            Work experience
+                            <?php _e('Work experience', 'dyachenko') ?>
                         </dt>
 	                    <?php
                             $exp = get_post_meta($post_id, 'experience', true);

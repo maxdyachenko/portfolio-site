@@ -3,6 +3,7 @@
 add_action('wp_enqueue_scripts', 'md_styles_scripts');
 add_action( 'init', 'md_menu' );
 add_action( 'widgets_init', 'md_register_sidebars' );
+add_action('after_setup_theme', 'md_setup');
 
 add_theme_support( 'post-thumbnails' );
 add_theme_support('custom-logo');
@@ -12,7 +13,9 @@ add_filter( 'post_thumbnail_html', 'md_post_image_html', 10, 3);
 add_filter( 'pre_get_document_title', 'md_filter_title');
 add_filter ('document_title_separator', 'md_document_title_separator') ;
 
-
+function md_setup() {
+	load_theme_textdomain('dyachenko', get_template_directory());
+}
 function md_register_sidebars() {
 	register_sidebar(
 		array(
@@ -68,8 +71,5 @@ function md_styles_scripts()
 	}
 
 }
-
-
-
 
 ?>
