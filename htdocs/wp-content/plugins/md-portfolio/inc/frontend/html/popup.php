@@ -7,7 +7,7 @@
 <div class="popup-content">
 	<div class="group">
 		<p class="term"><?php _e('About', 'md_portfolio') ?></p>
-		<p class="desc"><?php echo $data->about ?>
+		<p class="desc"><?php pll_e($data->about) ?>
         </p>
 	</div>
 	<div class="group">

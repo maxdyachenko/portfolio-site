@@ -30,7 +30,7 @@
             </figure>
             <div>
                 <button class="red-button">
-                    <a href="/contacts"><?php _e('Contact me', 'dyachenko') ?></a>
+                    <a href="<?php echo (pll_current_language() == 'en') ? '/contacts' : '/контакты'; ?>"><?php _e('Contact me', 'dyachenko') ?></a>
                 </button>
             </div>
         </div>

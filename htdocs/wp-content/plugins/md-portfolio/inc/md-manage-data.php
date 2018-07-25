@@ -9,7 +9,12 @@ function md_save_data() {
 	$about = sanitize_text_field($_POST['md_about']);
 
 	$skill = sanitize_text_field($_POST['md_skill']);
-	$info = sanitize_text_field($_POST['md_info']);
+	if (isset($_POST['md_info']) && !empty($_POST['md_info'])) {
+		$info = sanitize_text_field($_POST['md_info']);
+	}
+	else {
+		$info = '';
+	}
 	$url = sanitize_text_field($_POST['md_url']);
 	$thumb_name = 'thumb.jpg';
 	$images = json_encode($_FILES['md_images']['name']);
